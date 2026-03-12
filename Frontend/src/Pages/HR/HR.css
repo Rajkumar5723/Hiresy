@@ -1,0 +1,985 @@
+:root {
+    --bgd: #000000;
+    --bgdi: #272727;
+    --td: #ffffff;
+}
+
+/* ============================================ DASHBOARD =========================================== */
+
+.dashboard-main {
+    height: 100dvh;
+    width: 100%;
+    background-color: var(--bgd);
+    color: var(--td);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dashbboard-navtop {
+    padding: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 1.7em;
+    flex-shrink: 0;
+}
+
+.navtop-logo {
+    height: 35px;
+    margin-left: 0.3em;
+}
+
+.navtop-welcome {
+    font-size: x-large;
+    letter-spacing: -1px;
+    font-weight: 500;
+}
+
+.navtop-search {
+    margin-left: auto;
+    width: 30%;
+    background-color: var(--bgdi);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 0.2em;
+    display: flex;
+}
+
+.navtop-search-input {
+    background-color: transparent;
+    padding: 0.7em 1.3em;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: var(--td);
+}
+
+.navtop-search-icon {
+    background: #3b3b3b;
+    width: 10%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.dashboard-inner {
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.dashboard-menuside {
+    height: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex-shrink: 0;
+}
+
+.dashboard-menu-icon {
+    padding: 0.5em;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+.dashboard-menu-icon-selected {
+    background-color: #ff4400;
+}
+
+.dashboard-menu-icon:hover {
+    color: #fedfd2;
+}
+
+.dashboard-menu-profile {
+    margin-top: auto;
+    margin-bottom: 1.3em;
+}
+
+.dashboard-post-container {
+    flex-grow: 1;
+    margin: 0 1.5em 1.5em 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* ============================================ ALL POSTS =========================================== */
+.allpost-main {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 1em;
+    gap: 1em;
+    overflow-y: auto;
+}
+
+.allpost-post-box {
+    width: calc(25% - 1em);
+    min-height: 170px;
+    height: auto;
+    padding: 1em;
+    background-color: var(--bgdi);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.allpost-post-box:hover {
+    background: #6e6e6e86;
+}
+
+.postbox-job-date {
+    font-size: x-small;
+    padding: 0.1em 0.4em;
+    background-color: #575757;
+    align-self: start;
+    border-radius: 3px;
+}
+
+.postbox-job-title {
+    font-size: large;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.postbox-job-team {
+    font-size: smaller;
+    color: #afafaf;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.postbox-job-des {
+    font-size: small;
+    line-height: 1.4em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+.postbox-info {
+    display: flex;
+    align-items: center;
+}
+
+.postbox-info-application {
+    font-size: smaller;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+}
+
+.postbox-info-visit {
+    font-size: smaller;
+    padding: 0.2em 0.7em;
+    background-color: #ffffff;
+    color: #000000;
+    margin-left: auto;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.postbox-info-visit:hover {
+    background-color: #ff5e00;
+    color: #fff;
+}
+
+/* ── Status messages ──────────────────────────────────────── */
+.allpost-status {
+    text-align: center;
+    color: #888;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.allpost-error {
+    color: #e05555;
+}
+
+/* ── Tag pills on card ────────────────────────────────────── */
+.postbox-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+}
+
+.postbox-tag {
+    background: #3a3a3a;
+    color: #ff7a3d;
+    border: 1px solid #554033;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 0.68rem;
+    font-weight: 500;
+}
+
+.postbox-tag-type {
+    background: #1e2a45;
+    color: #7a9fff;
+    border-color: #2d3f6a;
+}
+
+.postbox-tag-round {
+    background: #1a2e22;
+    color: #4ade80;
+    border-color: #2d5e3a;
+}
+
+.postbox-tag-platform {
+    background: #21183a;
+    color: #c084fc;
+    border-color: #432d6e;
+}
+
+.postbox-tag-appfield {
+    background: #252525;
+    color: #999;
+    border-color: #3a3a3a;
+}
+
+/* ── POPUP OVERLAY ────────────────────────────────────────── */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.popup-box {
+    background: #1e1e1e;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+/* ── Popup Header ─────────────────────────────────────────── */
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.4rem 1.6rem 1rem;
+    border-bottom: 1px solid #2e2e2e;
+}
+
+.popup-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin: 0 0 4px;
+}
+
+.popup-sub {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+}
+
+.popup-close {
+    cursor: pointer;
+    color: #666;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.popup-close:hover {
+    color: #ff5e00;
+}
+
+/* ── Popup Scrollable Body ────────────────────────────────── */
+.popup-body {
+    overflow-y: auto;
+    padding: 1.2rem 1.6rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ── Meta row ─────────────────────────────────────────────── */
+.popup-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.popup-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #2a2a2a;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    color: #bbb;
+}
+
+/* ── Popup Sections ───────────────────────────────────────── */
+.popup-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.popup-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #777777;
+}
+
+.popup-section-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.popup-hidden {
+    color: #555;
+    font-size: 0.8rem;
+    margin-left: 6px;
+}
+
+.popup-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* ── Two column layout ────────────────────────────────────── */
+.popup-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ── Popup Footer ─────────────────────────────────────────── */
+.popup-footer {
+    padding: 1rem 1.6rem;
+    border-top: 1px solid #2e2e2e;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-close-btn {
+    background: #ff5e00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.popup-close-btn:hover {
+    background: #e04e00;
+}
+
+/* ── Confirm delete row in popup footer ─────────────── */
+.popup-confirm-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.popup-confirm-text {
+    font-size: 0.85rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.popup-confirm-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.popup-cancel-btn {
+    background: #2e2e2e;
+    color: #ccc;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.popup-cancel-btn:hover {
+    background: #3a3a3a;
+}
+
+.popup-delete-btn {
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.popup-delete-btn:hover {
+    background: #a93226;
+}
+
+.popup-delete-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ============================================ ADD POSTS =========================================== */
+
+.addpost-main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+}
+
+.addpost-sect {
+    flex-shrink: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    padding: 1.5em;
+    border-radius: 10px;
+    background: #212121e4;
+    flex-direction: column;
+}
+
+.addpost-title {
+    font-size: x-large;
+    color: #ff5719;
+    letter-spacing: -0.7px;
+}
+
+.addpost-form {
+    padding: 1em 0;
+    flex-grow: 1;
+    display: flex;
+}
+
+.addpost-form-inner {
+    width: 50%;
+    height: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.addpost-form-inner-appli {
+    justify-content: start;
+    gap: 1.2em;
+}
+
+.addpost-inblock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.addpost-inblock-multi {
+    display: flex;
+    gap: 1em;
+}
+
+.addpost-inblock-multi * {
+    width: 100%;
+}
+
+.addpost-inblock-multi-checkbox {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.addpost-inblock-button {
+    display: flex;
+    gap: 1em;
+    margin-top: auto;
+}
+
+.addpost-label {
+    font-size: large;
+}
+
+.addpost-label-chekbox-small {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: small;
+    color: #ffa77e;
+    accent-color: rgb(255, 115, 0);
+}
+
+.addpost-label-chekbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5em;
+
+    input {
+        accent-color: rgb(255, 115, 0);
+        scale: 1.4;
+    }
+}
+
+.addpost-input {
+    width: 100%;
+    padding: 0.8em 1em;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    background-color: #5e5e5e;
+    color: white;
+    resize: none;
+}
+
+.addpost-input::placeholder {
+    color: #e3e3e3;
+}
+
+.addpost-next {
+    background-color: #ff4400;
+    cursor: pointer;
+    font-weight: 500;
+    transition-duration: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+}
+
+.addpost-next:hover {
+    background-color: #bd3200;
+}
+
+.addpost-sect-application .addpost-label {
+    color: #7d7d7d;
+}
+
+/* ============================================ SHARED =========================================== */
+
+.required {
+    color: red;
+}
+
+/* ============================================ SKILL TAGS =========================================== */
+
+.multi-select-wrapper {
+    position: relative;
+}
+
+.selected-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.skill-tag {
+    background: #000000;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.skill-tag-remove {
+    margin-left: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+}
+
+.skill-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #2a2a2a;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill-dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.skill-dropdown-item:hover {
+    background: #858585;
+}
+
+/* ============================================ CUSTOM FIELDS =========================================== */
+
+.custom-field-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.custom-field-input {
+    width: 80% !important;
+}
+
+.custom-field-btn {
+    width: 20% !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.custom-field-list {
+    max-height: 90px;
+    overflow-y: auto;
+}
+
+.custom-field-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.custom-field-remove {
+    width: 20%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 18px;
+}
+
+/* ============================================ RESPONSIVE =========================================== */
+
+@media (max-width: 768px) {
+
+    .dashbboard-navtop {
+        flex-wrap: wrap;
+        gap: 0.8em;
+        padding: 0.8em;
+    }
+
+    .navtop-welcome {
+        font-size: medium;
+    }
+
+    .navtop-search {
+        width: 100%;
+        margin-left: 0;
+        order: 3;
+    }
+
+    .dashboard-inner {
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .dashboard-menuside {
+        flex-direction: row;
+        height: auto;
+        width: 100%;
+        padding: 0.5em 1em;
+        justify-content: flex-start;
+    }
+
+    .dashboard-menu-profile {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: auto;
+    }
+
+    .dashboard-post-container {
+        flex-grow: 1;
+        margin: 0 0.5em 0.5em 0.5em;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .allpost-post-box {
+        width: 100%;
+    }
+
+    .addpost-main {
+        height: auto;
+        min-height: 100%;
+        overflow-y: visible;
+    }
+
+    .addpost-sect {
+        min-height: auto;
+    }
+
+    .addpost-form {
+        flex-direction: column;
+    }
+
+    .addpost-form-inner {
+        width: 100%;
+        height: auto;
+        padding: 0.5em 0;
+        gap: 1em;
+        justify-content: flex-start;
+    }
+
+    .addpost-inblock-button {
+        flex-direction: column;
+        margin-top: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .addpost-title {
+        font-size: large;
+    }
+
+    .addpost-label {
+        font-size: medium;
+    }
+
+    .addpost-inblock-multi {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    .addpost-inblock-multi * {
+        width: 100%;
+    }
+}
+
+.addpost-label-chekbox-title {
+    color: #afafaf;
+    font-size: larger;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    cursor: pointer;
+}
+
+.file-upload-input {
+    display: none;
+}
+
+.file-upload-btn {
+    padding: 0.6em 1.2em;
+    background-color: #d73900;
+    color: white;
+    border-radius: 4px;
+    font-size: small;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+}
+
+.file-upload-label:hover .file-upload-btn {
+    background-color: #bd3200;
+}
+
+.file-upload-name {
+    font-size: small;
+    color: #aaaaaa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
+}
+
+/* ============================================ SETTINGS =========================================== */
+
+.setting-main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    background: #303030c7;
+    padding: 1.5em 0;
+}
+
+.setting-container {
+    width: 100%;
+    max-width: 720px;
+    /* margin: 48px auto; */
+    padding: 0 24px;
+}
+
+.setting-title {
+   font-size: x-large;
+   margin-bottom: 1em;
+}
+
+.setting-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.setting-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: border-color 0.2s;
+}
+
+.setting-card:hover {
+    border-color: #3a3a3a;
+}
+
+.setting-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.setting-li-icon {
+    width: 44px;
+    height: 44px;
+    background: #0a66c2;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.setting-li-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.setting-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin-bottom: 3px;
+}
+
+.setting-card-desc {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+    max-width: 320px;
+    line-height: 1.5;
+}
+
+.setting-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.setting-badge-connected {
+    background: #0d2b1a;
+    color: #34d17a;
+    border: 1px solid #1a4a2a;
+}
+
+.setting-badge-disconnected {
+    background: #1e1e1e;
+    color: #666;
+    border: 1px solid #2a2a2a;
+}
+
+.setting-badge-loading {
+    background: #1e1e1e;
+    color: #888;
+    border: 1px solid #2a2a2a;
+}
+
+.setting-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.setting-action-msg {
+    font-size: 12px;
+    color: #888;
+}
+
+.setting-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.setting-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.setting-btn:active {
+    transform: translateY(0);
+}
+
+.setting-btn-connect {
+    background: #0a66c2;
+    color: #fff;
+}
+
+.setting-btn-disconnect {
+    background: #2a1a1a;
+    color: #e05555;
+    border: 1px solid #3a2020;
+}
