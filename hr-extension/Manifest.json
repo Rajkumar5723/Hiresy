@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Hiersy HR Copilot",
+    "version": "3.0",
+    "description": "AI Copilot sidebar for HR interviews on Google Meet",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://meet.google.com/*",
+        "https://api.groq.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Hiersy Copilot"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://meet.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle",
+            "all_frames": false
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "sidebar.html",
+                "sidebar.js",
+                "sidebar.css"
+            ],
+            "matches": [
+                "https://meet.google.com/*"
+            ]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}

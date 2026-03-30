@@ -31,7 +31,7 @@ export default function Dashboard() {
                     <input
                         type="text"
                         className="navtop-search-input"
-                        placeholder="Search"
+                        placeholder="Search Jobs"
                     />
                     <span className="navtop-search-icon"><IoSearch size={17} /></span>
                 </div>

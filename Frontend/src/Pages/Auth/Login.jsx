@@ -18,7 +18,7 @@ export default function Login() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password })
             })
-            const data = await response.json()
+            const data = await response.json() 
 
             if (response.ok) {
                 localStorage.setItem("hr_email", data.email)
@@ -36,7 +36,7 @@ export default function Login() {
     return (
         <main className="login-main">
             <div className="login-side">
-                <img src="/icon.svg" alt="" className="login-logo" />
+                <img src="/iconw.svg" alt="" className="login-logo" />
             </div>
             <div className="login-form-side">
                 <LiaStarOfLifeSolid size={60} color="#ff5e00" />

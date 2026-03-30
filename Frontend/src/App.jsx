@@ -12,12 +12,31 @@ import AddPost from './Pages/HR/AddPost.jsx'
 import Settings from './Pages/HR/Settings.jsx'
 import Profile from './Pages/HR/Profile.jsx'
 
+import JobPost from './Pages/Candidate/JobPost.jsx'
+import JobApplication from './Pages/Candidate/JobApplication.jsx'
+
+import CodingTest from "./Codingtest/Codingtest.jsx";
+
+import TestPage from "./shortlistingtest/TestPage";
+
+import LiveHR from './Livehr/HRCopilot.jsx'
+
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        
+        <Route path="/job/:id" element={<JobPost />} />
+        <Route path="/job/:id/apply" element={<JobApplication />} />
+
+        <Route path="/test/:token" element={<TestPage />} />
+        
+        <Route path="/coding/:token" element={<CodingTest />} />
+
+        <Route path="/livehr/:token" element={<LiveHR />} />
+
         <Route path="/hrdashboard" element={<HRDashboard />}>
           <Route index element={<AllPosts />} />
           <Route path="all" element={<AllPosts />} />

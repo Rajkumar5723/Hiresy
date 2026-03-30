@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 200px;
+            padding: 16px;
+            background: #050505;
+            color: #fcfcfc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .logo {
+            font-size: 9px;
+            color: #ff4400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .sub {
+            font-size: 11px;
+            color: #e6e6e6;
+            margin-bottom: 14px;
+        }
+
+        .status {
+            padding: 9px 11px;
+            border-radius: 7px;
+            font-size: 11px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .on {
+            background: rgba(34, 197, 94, 0.08);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .off {
+            background: #0a0a0a;
+            color: #e4e4e4;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 9px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .btn-on {
+            background: #ff4400;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .btn-off {
+            background: #111;
+            color: #dedede;
+            border: 1px solid #303030;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .note {
+            font-size: 10px;
+            color: #e8e8e8;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="logo">Hiersy</p>
+    <p class="title">HR Copilot</p>
+    <p class="sub">Google Meet sidebar</p>
+    <div class="status off" id="st">Not active</div>
+    <button class="btn btn-on" id="onBtn">Activate Copilot</button>
+    <button class="btn btn-off" id="offBtn" style="display:none">Deactivate</button>
+    <p class="note" id="note">Switch to your Google Meet tab first.</p>
+    <script src="popup.js"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@ from datetime import datetime
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "linkedin_automation.db")
 
 
-def format_post(job: dict) -> str:
+def format_post(job: dict, job_id: str = "") -> str:
     types = {"ft": "Full-Time", "pt": "Part-Time", "ct": "Contract"}
     depts = {"dev": "Development", "sal": "Sales", "mkt": "Marketing"}
 
@@ -27,8 +27,13 @@ def format_post(job: dict) -> str:
     if opens: text += f"🔢 Openings: {opens}\n"
     if dead:  text += f"📅 Deadline: {dead}\n"
     if skills: text += f"\n🛠 Skills: {skills}\n"
-    text += "\n👉 Apply now or DM us!\n\n"
-    text += f"#Hiring #JobOpening #NowHiring #{dept.replace(' ', '')}"
+    text += "\n👉 Apply now or DM us!\n"
+    if job_id:
+        text += f"🔗 Job details & application: http://localhost:5173/job/{job_id}\n\n"
+    else:
+        text += "\n"
+    text += f"#Hiring #JobOpening #NowHiring #{dept.replace(' ', '')}\n"
+    text += "⚠️ Notice: This is a test job posting created for system testing. Please do not submit applications.\n"
     return text
 
 
@@ -71,7 +76,7 @@ def post_to_linkedin(access_token: str, person_urn: str, content: str) -> dict:
 
 
 def generate_and_post(job_id: str, job_details: dict) -> dict:
-    post_text    = format_post(job_details)
+    post_text    = format_post(job_details, job_id)
     hr_email     = job_details.get("posted_by")
     account      = get_account(hr_email)
 
