@@ -156,7 +156,6 @@ def linkedin_callback(code: str = None, state: str = None, error: str = None):
     hr_email = state
     print(f"[LinkedIn] Callback: hr_email={hr_email}")
 
-    # Exchange code for token
     res = requests.post(
         "https://www.linkedin.com/oauth/v2/accessToken",
         data={

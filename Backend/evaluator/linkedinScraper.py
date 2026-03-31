@@ -1,9 +1,3 @@
-"""
-LinkedIn Profile Scraper using Playwright
-Requires: pip install playwright && playwright install chromium
-Credentials in .env: LI_EMAIL, LI_PASSWORD
-Falls back to og/meta tag scraping if no credentials.
-"""
 import os, re, json, asyncio
 from dotenv import load_dotenv
 load_dotenv()
@@ -35,7 +29,6 @@ async def _scrape(url: str) -> dict:
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         ))
 
-        # Login if credentials provided
         if LI_EMAIL and LI_PASSWORD:
             try:
                 await page.goto("https://www.linkedin.com/login", timeout=15000)

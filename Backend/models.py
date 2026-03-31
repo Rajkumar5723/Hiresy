@@ -86,7 +86,7 @@ class Application(Base):
     eval_recommendation = Column(String, nullable=True)
     eval_summary        = Column(String, nullable=True)
     eval_data           = Column(Text,   nullable=True)
-    status          = Column(String, default='pending')  # pending | selected | rejected
+    status          = Column(String, default='pending')  
 
     # Stage 0 — AI evaluation
     eval_score          = Column(String, nullable=True)
@@ -95,4 +95,3 @@ class Application(Base):
     eval_data           = Column(String, nullable=True)
 
 
-# Add status column to Application — run this SQL once:

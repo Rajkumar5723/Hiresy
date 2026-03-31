@@ -14,7 +14,7 @@ class UserLogin(BaseModel):
     password: str
 
 
-# ── Jobs ──────────────────────────────────────────────
+# ── Job ──────────────────────────────────────────────
 class JobCreate(BaseModel):
     posted_by: EmailStr
     job_name: str

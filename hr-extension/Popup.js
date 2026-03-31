@@ -18,7 +18,7 @@ chrome.storage.local.get(["copilot_active"], r => setActive(!!r.copilot_active))
 async function sendToMeet(type) {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab?.url?.includes("meet.google.com")) {
-        alert("Switch to your Google Meet tab first, then click here.");
+        alert("Switch to your Google Meet tab first, then click here..");
         return false;
     }
     return new Promise(resolve => {

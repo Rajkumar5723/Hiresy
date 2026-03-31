@@ -98,3 +98,4 @@ def generate_and_post(job_id: str, job_details: dict) -> dict:
         "linkedin_status": result["status_code"],
         "linkedin_body":   result["body"]
     }
+#Martin

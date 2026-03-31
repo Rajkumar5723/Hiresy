@@ -119,12 +119,10 @@ function deactivate() {
     console.log("[Hiersy] Copilot deactivated");
 }
 
-// Auto-activate if was active before
 chrome.storage.local.get(["copilot_active"], (r) => {
     if (r.copilot_active) activate();
 });
 
-// Messages from popup
 chrome.runtime.onMessage.addListener((msg, _, respond) => {
     if (msg.type === "ACTIVATE") { activate(); respond({ ok: true }); }
     if (msg.type === "DEACTIVATE") { deactivate(); respond({ ok: true }); }

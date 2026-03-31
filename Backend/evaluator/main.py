@@ -10,7 +10,6 @@ from email.mime.multipart import MIMEMultipart
 load_dotenv()
 logger = logging.getLogger(__name__)
 
-# ── API Keys ───────────────────────────────────────────
 _KEYS = [k.strip() for k in [
     os.getenv("GROQ_API_KEY_1",""), os.getenv("GROQ_API_KEY_2",""), os.getenv("GROQ_API_KEY_3",""),
 ] if k.strip()]
@@ -22,7 +21,6 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN","") or os.getenv("GitHub_API","")
 GROQ_URL     = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL   = "llama-3.3-70b-versatile"
 
-# ── Email config ───────────────────────────────────────
 SMTP_USER     = os.getenv("SMTP_USER", "")
 SMTP_PASS     = os.getenv("SMTP_PASS", "")
 SMTP_FROM     = os.getenv("SMTP_FROM", SMTP_USER)
@@ -82,13 +80,12 @@ def send_shortlist_email(candidate_email, candidate_name, job_title, score, comp
 </table>
 </body></html>"""
         import base64
-        # Try multiple logo locations
         _logo_b64 = ""
         for _lp in [
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "emaillogo.jpeg"),
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "emaillogo.jpeg"),
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Frontend", "public", "emaillogo.jpeg"),
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "frontend", "public", "emaillogo.jpeg"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "emaillogo.jpg"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "emaillogo.jpg"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Frontend", "public", "emaillogo.jpg"),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "frontend", "public", "emaillogo.jpg"),
         ]:
             if os.path.exists(_lp):
                 with open(_lp, "rb") as _f:
@@ -126,7 +123,6 @@ def semantic_match(resume_text, job_description):
 def health():
     return {"status": "ok", "model": GROQ_MODEL, "keys_loaded": len(_KEYS)}
 
-# ══ GITHUB ════════════════════════════════════════════
 def fetch_github_raw(github_url):
     if not github_url:
         return {}, "No GitHub provided."
@@ -190,7 +186,6 @@ def fetch_github_raw(github_url):
     except Exception as e:
         return {}, f"GitHub fetch failed: {e}"
 
-# ══ LEETCODE ══════════════════════════════════════════
 LEETCODE_URL = "https://leetcode.com/graphql"
 LC_HEADERS   = {"Content-Type":"application/json","Referer":"https://leetcode.com","User-Agent":"Mozilla/5.0"}
 PROFILE_QUERY = """query getUserProfile($username: String!) { matchedUser(username: $username) {
@@ -247,7 +242,6 @@ async def fetch_leetcode_raw(leetcode_url):
     except Exception as e:
         return {}, f"LeetCode fetch failed: {e}"
 
-# ══ GROQ ══════════════════════════════════════════════
 def call_groq(prompt):
     errors = []
     for _ in range(len(_KEYS)):
@@ -289,7 +283,6 @@ def call_groq(prompt):
             errors.append(str(e))
     raise Exception("All keys failed: " + " | ".join(errors))
 
-# ══ EVALUATE ══════════════════════════════════════════
 class EvalRequest(BaseModel):
     application_id:  int
     resume_text:     str
@@ -374,7 +367,6 @@ Return ONLY this JSON (no markdown, no extra text):
         result["leetcode_raw"]   = leetcode_raw
         result["eval_summary"]   = result.get("summary", "")
 
-        # ── Auto shortlist: email + test ──
         final = result["final_score"]
         if final > SHORTLIST_MIN and req.application_id:
             try:
@@ -388,10 +380,8 @@ Return ONLY this JSON (no markdown, no extra text):
                     job_id = cand.get("job_id", 0)
 
                     if email:
-                        # Email 1: shortlist notification
                         result["shortlist_email_sent"] = send_shortlist_email(email, name, job, final)
 
-                        # Email 2: test link (handled by shortlistingtest service)
                         try:
                             test_res = requests.post(
                                 "http://127.0.0.1:8002/tests/create",

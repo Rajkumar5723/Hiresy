@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "Hiersy HR Copilot",
+    "name": "Hiresy HR Copilot",
     "version": "3.0",
     "description": "AI Copilot sidebar for HR interviews on Google Meet",
     "permissions": [
         "activeTab",
-        "scripting",
+        "scripting" ,
         "storage",
         "tabs"
     ],
