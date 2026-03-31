@@ -1,7 +1,7 @@
 import './Components.css'
 
 // Images
-import logo from '/icon.svg'
+import logo from '/iconw.svg'
 
 
 export default function Navbar() {
